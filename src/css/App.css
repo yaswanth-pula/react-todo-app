@@ -1,9 +1,23 @@
 .App {
-  text-align: center;
-  min-height: 100vh;
   font-size: calc(10px + 2vmin);
-  color: white;
   font-family: "Roboto", "Helvetica", "Arial", sans-serif;
 }
-
+.header{
+  text-align: center;
+}
+#task-input-paper{
+  padding: 12px;
+  background-color:grey;
+  align-items:center;
+  text-align:center;
+  justify-items:center;
+}
+#task-add-button{
+  margin-left: 12px;
+  background-image: linear-gradient(180deg, #A9C9FF 0%, #FFBBEC 100%);
+}
+#chip{
+  color:peru;
+  margin: 4px;
+}
 

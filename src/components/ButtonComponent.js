@@ -1,13 +1,17 @@
 import React, { forwardRef } from 'react';
 import Button from '@material-ui/core/Button';
+
 const ButtonComponent = forwardRef( (props,ref) =>{
     return(
     <Button 
+            id="task-add-button"
             ref = {ref}
             variant="outlined" 
             color="primary"
-            onClick={props.button_click}>
-            {props.button_text}
+            size={props.button_size}
+            onClick={props.button_click}
+            >
+            {props.label}
     </Button>
     );
 });
