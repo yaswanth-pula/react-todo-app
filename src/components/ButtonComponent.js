@@ -9,6 +9,7 @@ const ButtonComponent = forwardRef( (props,ref) =>{
             variant="outlined" 
             color="primary"
             size={props.button_size}
+            disabled={props.disabled}
             onClick={props.button_click}
             >
             {props.label}

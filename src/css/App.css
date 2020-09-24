@@ -17,7 +17,8 @@
   background-image: linear-gradient(180deg, #A9C9FF 0%, #FFBBEC 100%);
 }
 #chip{
-  color:peru;
+  color:black;
   margin: 4px;
+  background-image: linear-gradient(180deg, #A9C9FF 0%, #FFBBEC 100%);
 }
 
