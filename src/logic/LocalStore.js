@@ -2,7 +2,8 @@ export default function addToStorage(content){
     let task_list = getToDoListFromStorage();
     let taskObj = {"id":Date.now(),"task_content":content,"status":"Need to be Done"};
     task_list.push(taskObj);
-    localStorage.setItem("LOCAL_KEY",JSON.stringify(task_list));
+    //localStorage.setItem("LOCAL_KEY",JSON.stringify(task_list));
+    updateLocalStore(task_list);
 }
     
 export function getToDoListFromStorage(){
@@ -24,5 +25,18 @@ export function updateToDoListFromStorage(task_id){
         }
         return task;       
     });
-    localStorage.setItem("LOCAL_KEY",JSON.stringify(current_todo_list));
+    //localStorage.setItem("LOCAL_KEY",JSON.stringify(current_todo_list));
+    updateLocalStore(current_todo_list);
+}
+
+export function deletedTaskFromStorage(task_id){
+    let current_todo_list = []; 
+    current_todo_list = getToDoListFromStorage();
+    current_todo_list = current_todo_list.filter((task) => task.id!==task_id);
+    // localStorage.setItem("LOCAL_KEY",JSON.stringify(current_todo_list));
+    updateLocalStore(current_todo_list);
+}
+
+function updateLocalStore(updatelist){
+    localStorage.setItem("LOCAL_KEY",JSON.stringify(updatelist));
 }

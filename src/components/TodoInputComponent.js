@@ -8,15 +8,16 @@ import  addToDoStorage, {getToDoListFromStorage}  from '../logic/LocalStore';
 const TodoInputComponent = () => {
     // Ref
     const input_ref = createRef();
-
+    // hooks
     const [TaskInputText,setTaskInputText] = useState("");
     const [task_list,setTodolist] = useState([]);
+    const [parent_render,setParentRender] = useState("");
     // useEffect
     useEffect(() =>{
             getTodo();
             showTodo();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    },[TaskInputText]);
+    },[TaskInputText,parent_render]);
     function addToDo(){
         // let taskObj = {"id":Date.now(),"task_content":TaskInputText,"status":"completed"};
         // task_list.push(taskObj);
@@ -35,12 +36,15 @@ const TodoInputComponent = () => {
         addToDo();
         showTodo();
         setTaskInputText("");
-    }    
+    }
+    function handleCallback(val){
+        setParentRender(val);
+    }
     function showTodo(){ 
         return (
             <div>
             {task_list.map((todo) =>(
-                <TaskComponent task={todo.task_content} status ={todo.status} key = {todo.id} id={todo.id}/>
+                <TaskComponent task={todo.task_content} status ={todo.status} key = {todo.id} id={todo.id} call_back={handleCallback} />
             ))
         }
         </div>
@@ -70,7 +74,7 @@ const TodoInputComponent = () => {
             />
         </Paper>
             <div>
-                {task_list.length!==0 && showTodo()}
+                {showTodo()}
             </div>
         </div>
     );
