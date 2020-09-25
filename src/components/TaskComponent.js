@@ -17,13 +17,13 @@ const TaskComponent = (props) => {
 
     return(
         <div>
-        <Paper id="task-input-paper">
+        <Paper className='task-item-paper'>
             <Chip variant="outlined" label={props.status} id="chip"/>
-            <Typography variant="overline" align="center">
-                {props.task}
-            </Typography>
-            <IconButtonComponent button_click ={handleCompletedTask} icon = "done" button_size="small" />
-            <IconButtonComponent button_click = {handleDeleteTask} icon = "delete" button_size="small" />
+                <Typography variant="inherit" align="justify" id="task-text">
+                    {props.task}
+                </Typography>
+            <IconButtonComponent button_click ={handleCompletedTask} icon = "done" button_size="small" tip_text="Task Completed"/>
+            <IconButtonComponent button_click = {handleDeleteTask} icon = "delete" button_size="small" tip_text="Delete Task" />
         </Paper>
         </div>
     );

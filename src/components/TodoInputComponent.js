@@ -3,6 +3,8 @@ import TextField from '@material-ui/core/TextField';
 import ButtonComponent from './ButtonComponent'
 import Paper from '@material-ui/core/Paper'
 import TaskComponent from '../components/TaskComponent';
+import Container from '@material-ui/core/Container';
+import CssBaseline from '@material-ui/core/CssBaseline';
 import  addToDoStorage, {getToDoListFromStorage}  from '../logic/LocalStore';
 
 const TodoInputComponent = () => {
@@ -52,29 +54,39 @@ const TodoInputComponent = () => {
     }
     
     return(
-        <div>
-            <Paper id="task-input-paper">
-            <TextField
-                inputRef = {input_ref} 
-                id ="outlined-basic" 
-                label="Enter Your Task" 
-                variant="outlined"
-                size = "small"
-                onChange={(event) => {setTaskInputText(event.target.value)}}
-                value={TaskInputText}
-                multiline
-                />
-                <ButtonComponent
-                disabled={!TaskInputText}
-                id="task-add-button" 
-                ref={input_ref}
-                button_size ="medium"
-                label = "ADD TASK"
-                button_click = {handleAddTask}
-            />
-        </Paper>
-            <div>
-                {showTodo()}
+        <div className="task-input-div">
+            <div className="task-input">
+                <Paper id="task-input-paper">
+                    <TextField
+                        className="input_text_field"
+                        inputRef = {input_ref} 
+                        label="Enter Your Task" 
+                        variant="outlined"
+                        size="small"
+                        onChange={(event) => {setTaskInputText(event.target.value)}}
+                        value={TaskInputText}
+                        multiline
+                        fullWidth
+                        />
+                        <ButtonComponent
+                        disabled={!TaskInputText}
+                        id="task-add-button" 
+                        ref={input_ref}
+                        button_size ="medium"
+                        label = "ADD TASK"
+                        button_click = {handleAddTask}
+                    />
+                </Paper>
+            </div>
+        
+            <div className="task-list-view">
+                <React.Fragment>
+                <CssBaseline />
+                    <Container maxWidth="md">
+                        {showTodo()}
+                    </Container>
+                </React.Fragment>
+                    
             </div>
         </div>
     );
