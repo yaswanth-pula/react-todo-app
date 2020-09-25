@@ -1,0 +1,52 @@
+.App {
+  font-size: calc(10px + 2vmin);
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+}
+.header{
+  text-align: center;
+}
+#task-input-paper{
+  /* padding: 12px;
+  background-image: linear-gradient(60deg, #64b3f4 0%, #c2e59c 70%);
+  align-items:center;
+  text-align:center;
+  justify-items:center; */
+  padding: 12px;
+  margin: .5rem;
+  justify-content: space-between;
+  align-items: center;
+  display: flex;
+  background-image: linear-gradient(60deg, #64b3f4 0%, #c2e59c 70%);
+}
+#task-add-button{
+  margin-left: 12px;
+  background-image: linear-gradient(180deg, #A9C9FF 0%, #FFBBEC 100%);
+}
+#chip{
+  color:black;
+  font-weight: 600;
+  margin-right: 8px;
+}
+
+.task-list-view{
+  align-items: center;
+  justify-content: center;
+  margin-top: 12px;
+}
+
+.task-item-paper{
+  padding: 12px;
+  margin: .5rem;
+  justify-content: space-between;
+  align-items: center;
+  display: flex;
+  background-image: linear-gradient(60deg, #64b3f4 30%, #c2e59c 70%);
+}
+
+#task-text{
+  flex:1;
+}
+.input_text_field{
+  flex:1;
+  color: #64b3f4;
+}
