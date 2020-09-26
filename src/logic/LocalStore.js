@@ -1,6 +1,6 @@
 export default function addToStorage(content){
     let task_list = getToDoListFromStorage();
-    let taskObj = {"id":Date.now(),"task_content":content,"status":"Need to be Done"};
+    let taskObj = {"id":Date.now(),"task_content":content,"isTaskFinshed":false};
     task_list.push(taskObj);
     //localStorage.setItem("LOCAL_KEY",JSON.stringify(task_list));
     updateLocalStore(task_list);
@@ -20,7 +20,7 @@ export function updateToDoListFromStorage(task_id){
     current_todo_list = current_todo_list.map((task) =>{
         if(task_id === task.id){
             return{
-                ...task,status:"You Have Done It"
+                ...task,isTaskFinshed:(!task.isTaskFinshed)
             }
         }
         return task;       

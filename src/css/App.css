@@ -50,3 +50,8 @@
   flex:1;
   color: #64b3f4;
 }
+#completed-task{
+  flex:1;
+  text-decoration: line-through;
+  opacity: 0.5;
+}
